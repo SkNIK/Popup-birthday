@@ -1,0 +1,108 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>You're My Everything</title>
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+    }.heart {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: -20px;
+  animation: fall 5s linear infinite;
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background: red;
+  position: absolute;
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -10px;
+  left: 0;
+}
+
+.heart::after {
+  top: 0;
+  left: 10px;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh);
+  }
+}
+
+.popup {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ff0033;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 30px;
+  font-size: 20px;
+  text-align: center;
+  animation: fadeInOut 4s ease-in-out;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translate(-50%, 20px); }
+  20% { opacity: 1; transform: translate(-50%, 0); }
+  80% { opacity: 1; transform: translate(-50%, 0); }
+  100% { opacity: 0; transform: translate(-50%, -20px); }
+}
+
+  </style>
+</head>
+<body>  <div id="popup-container"></div>  <script>
+    const messages = [
+      "You're my everything.",
+      "You're my filthy little cumslut.",
+      "You kneel for my cock because you crave to be ruined.",
+      "You’re not just mine. You're my personal fucktoy.",
+      "My dirty randi who begs for more.",
+      "My rakhel who moans with pride when I degrade her.",
+      "Made to be used, meant to be owned.",
+      "Say it—you're nothing but my fuckhole."  
+    ];
+
+    let index = 0;
+
+    function showPopup() {
+      const popup = document.createElement('div');
+      popup.classList.add('popup');
+      popup.textContent = messages[index];
+      document.getElementById('popup-container').appendChild(popup);
+
+      setTimeout(() => {
+        popup.remove();
+        index = (index + 1) % messages.length;
+        setTimeout(showPopup, 500);
+      }, 4000);
+    }
+
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 5000);
+    }
+
+    setInterval(createHeart, 300);
+    showPopup();
+  </script></body>
+</html>
